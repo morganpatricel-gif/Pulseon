@@ -111,3 +111,18 @@ app.get("/ledger", async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log("API running")); 
+CREATE TABLE beats (
+  id SERIAL PRIMARY KEY,
+  title TEXT,
+  price INT,
+  creator_id TEXT,
+  plays INT DEFAULT 0,
+  shares INT DEFAULT 0
+);
+
+CREATE TABLE transactions (
+  id SERIAL PRIMARY KEY,
+  type TEXT,
+  amount INT,
+  created_at TIMESTAMP DEFAULT NOW()
+); 
